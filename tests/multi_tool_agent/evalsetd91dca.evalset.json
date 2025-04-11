@@ -1,0 +1,85 @@
+[
+  {
+    "name": "case054504",
+    "data": [
+      {
+        "query": "hi",
+        "expected_tool_use": [],
+        "expected_intermediate_agent_responses": [],
+        "reference": "Hi there! How can I help you today?\n"
+      },
+      {
+        "query": "wheather in new york",
+        "expected_tool_use": [
+          {
+            "tool_name": "get_weather",
+            "tool_input": {
+              "city": "new york"
+            }
+          }
+        ],
+        "expected_intermediate_agent_responses": [],
+        "reference": "OK. The weather in New York is sunny with a temperature of 25 degrees Celsius (41 degrees Fahrenheit).\n"
+      }
+    ],
+    "initial_session": {
+      "state": {},
+      "app_name": "multi_tool_agent",
+      "user_id": "user"
+    }
+  },
+  {
+    "name": "case822e40",
+    "data": [
+      {
+        "query": "bonjour ",
+        "expected_tool_use": [],
+        "expected_intermediate_agent_responses": [],
+        "reference": "Bonjour ! Comment puis-je vous aider aujourd'hui concernant la m\u00e9t\u00e9o ou l'heure au Cameroun (Yaound\u00e9, Douala, Bamenda) ?\n"
+      },
+      {
+        "query": "heure yaounde",
+        "expected_tool_use": [
+          {
+            "tool_name": "get_current_time",
+            "tool_input": {
+              "city": "Yaounde"
+            }
+          }
+        ],
+        "expected_intermediate_agent_responses": [],
+        "reference": "D\u00e9sol\u00e9, je ne connais pas la ville 'yaounde'. Veuillez choisir Yaound\u00e9, Douala ou Bamenda.\n"
+      },
+      {
+        "query": "Yaound\u00e9",
+        "expected_tool_use": [
+          {
+            "tool_name": "get_current_time",
+            "tool_input": {
+              "city": "Yaound\u00e9"
+            }
+          },
+          {
+            "tool_name": "get_current_time",
+            "tool_input": {
+              "city": "Bamenda"
+            }
+          },
+          {
+            "tool_name": "get_weather",
+            "tool_input": {
+              "city": "Douala"
+            }
+          }
+        ],
+        "expected_intermediate_agent_responses": [],
+        "reference": "Il est actuellement 23:20:41 \u00e0 Yaound\u00e9.\n"
+      }
+    ],
+    "initial_session": {
+      "state": {},
+      "app_name": "multi_tool_agent",
+      "user_id": "user"
+    }
+  }
+]
